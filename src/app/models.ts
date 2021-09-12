@@ -8,7 +8,7 @@ export interface Game {
     metacritic:string;
     genres:Array<Genre>;
     parents_platforms:Array<ParentPlatforms>;
-    publishers:Array<publishers>;
+    publishers:Array<Publishers>;
     rating:Array<Rating>;
     screenshots:Array<Screenshots>;
     trailer:Array<Trailer>;
@@ -16,20 +16,23 @@ export interface Game {
 export interface APIResponse<T>{
 result:Array<T>;
 }
-export interface parentPlatforms{
+export interface Genre{
+    
+}
+export interface ParentPlatforms{
     platform:{
         name:string;
     }
 }
-export interface publishers{
+export interface Publishers{
     name:string;
 }
-export interface rating{
+export interface Rating{
     id:number;
     count:number;
     title:string;
 }
-export interface screenshots{
+export interface Screenshots{
     image:string;
 }
 export interface Trailer{
