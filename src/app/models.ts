@@ -14,10 +14,10 @@ export interface Game {
     trailer:Array<Trailer>;
 }
 export interface APIResponse<T>{
-result:Array<T>;
+results:Array<T>;
 }
 export interface Genre{
-    
+    name:string;
 }
 export interface ParentPlatforms{
     platform:{

@@ -8,11 +8,11 @@ export class headersInerceptor implements HttpInterceptor{
         req=req.clone(
             {
                 setHeaders:{
-                    'x-rapidapi-key': 'esGbwrm390mshS2BCl0RALxQRtZTp1W7sFMjsnyJlJzDXVkW0H',
-                     'x-rapidapi-host': 'rawg-video-games-database.p.rapidapi.com',
+                    'x-rapidapi-host': 'rawg-video-games-database.p.rapidapi.com',
+                    'x-rapidapi-key': '42170af444mshab4ef6bcd7b0a39p1bbcebjsn5a217a860006'
                 },
                 setParams:{
-                    key: 'e40e743af2c94b0c916a8aa618fb4473',
+                    key: '706368c0916347c296a6d06332ffd370',
                 }
             }
         )

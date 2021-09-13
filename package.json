@@ -22,8 +22,10 @@
     "@angular/platform-browser-dynamic": "~11.0.6",
     "@angular/router": "~11.0.6",
     "angular-gauge": "^4.0.0",
+    "rapidapi-connect": "0.0.6",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
+    "unirest": "^0.6.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
