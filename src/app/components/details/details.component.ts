@@ -51,4 +51,12 @@ this.gameSub=this.httpService.getGameDetails(id).subscribe((gameResp:Game)=>{
   
 })
 }
+OnDestroy(){
+  if(this.gameSub){
+    this.gameSub.unsubscribe();
+  }
+  if(this.routeSub){
+    this.routeSub.unsubscribe();
+  }
+}
 }
