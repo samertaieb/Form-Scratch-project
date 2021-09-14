@@ -9,10 +9,10 @@ export class headersInerceptor implements HttpInterceptor{
             {
                 setHeaders:{
                     'x-rapidapi-host': 'rawg-video-games-database.p.rapidapi.com',
-                    'x-rapidapi-key': '42170af444mshab4ef6bcd7b0a39p1bbcebjsn5a217a860006'
+                    'x-rapidapi-key': '911c1e5b43mshc582fe97228b94cp17c5f8jsn1f1003bb9d8c'
                 },
                 setParams:{
-                    key: '706368c0916347c296a6d06332ffd370',
+                    key: '911c1e5b43mshc582fe97228b94cp17c5f8jsn1f1003bb9d8c',
                 }
             }
         )
