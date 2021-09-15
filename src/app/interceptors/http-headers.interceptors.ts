@@ -3,16 +3,17 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 @Injectable()
-export class headersInerceptor implements HttpInterceptor{
+export class headersInerceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        req=req.clone(
+        req = req.clone(
             {
-                setHeaders:{
+                setHeaders: {
+                    'Application Key': 'ba3ecf76d7msh95698e2f5a79840p13ed2fjsn928678d41d84',
                     'x-rapidapi-host': 'rawg-video-games-database.p.rapidapi.com',
-                    'x-rapidapi-key': '911c1e5b43mshc582fe97228b94cp17c5f8jsn1f1003bb9d8c'
+
                 },
-                setParams:{
-                    key: '911c1e5b43mshc582fe97228b94cp17c5f8jsn1f1003bb9d8c',
+                setParams: {
+                    key: '1df053a0848542ee9ba566d518f5314d',
                 }
             }
         )

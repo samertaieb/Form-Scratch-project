@@ -10,34 +10,44 @@ import { APIResponse, Game } from '../models';
 })
 export class HttpService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
+
   getGameList(
-    ordering:string,
-    search?:string,
+    ordering: string,
+    search?: string
+  ): Observable<APIResponse<Game>> {
+    let params = new HttpParams().set('ordering', ordering);
 
-  ): Observable <APIResponse<Game>>{
-
-    let params = new HttpParams().set('ordering',ordering);
-    if (search){
-      params=new HttpParams ().set('ordering', ordering).set('search',search)
+    if (search) {
+      params = new HttpParams().set('ordering', ordering).set('search', search);
     }
-     return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games`, {
+
+    return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games`, {
       params: params,
     });
   }
-getGameDetails(id:string): Observable <Game>{
-  const gameInfoRequest=this.http.get('${env.BASE_url}/games/${id}');
-  const gameTraillerRequest=this.http.get('${env.BASE_url}/games/${id}/movies');
-  const gameScreenshotsRequest=this.http.get('${env.BASE_url}/games/${id}/screenshots');
-  return forkJoin({
-    gameInfoRequest,gameScreenshotsRequest,gameTraillerRequest
-  }).pipe(
-    map((resp:any)=>{return{
-      ...resp['gameInfoRequest'],screenshots:resp['gameScreenshotsRequest']?.result,trailers:resp['gameTraillerRequest']?.result
-    }})
-  )
-}
 
+  getGameDetails(id: string): Observable<Game> {
+    const gameInfoRequest = this.http.get(`${env.BASE_URL}/games/${id}`);
+    const gameTrailersRequest = this.http.get(
+      `${env.BASE_URL}/games/${id}/movies`
+    );
+    const gameScreenshotsRequest = this.http.get(
+      `${env.BASE_URL}/games/${id}/screenshots`
+    );
 
-
+    return forkJoin({
+      gameInfoRequest,
+      gameScreenshotsRequest,
+      gameTrailersRequest,
+    }).pipe(
+      map((resp: any) => {
+        return {
+          ...resp['gameInfoRequest'],
+          screenshots: resp['gameScreenshotsRequest']?.results,
+          trailers: resp['gameTrailersRequest']?.results,
+        };
+      })
+    );
+  }
 }

@@ -9,17 +9,17 @@ import { HttpService } from 'src/app/services/http.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit,OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy {
   public sort: string;
   public games: Array<Game>;
-  private routeSub:Subscription ;
-  private gameSub:Subscription;
+  private routeSub: Subscription;
+  private gameSub: Subscription;
   constructor(private httpService: HttpService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
       if (params['game-search']) {
-        this.searchGames('metacrit', params['game-search']);
+        this.searchGames('metacritic', params['game-search']);
       }
       else this.searchGames('metacrit')
     })
@@ -31,13 +31,13 @@ export class HomeComponent implements OnInit,OnDestroy {
         console.log(gameList);
       })
   }
-  openGameDetails(id:string):void{
+  openGameDetails(id: string): void {
 
 
   }
-  ngOnDestroy(){
-    if(this.gameSub){
+  ngOnDestroy() {
+    if (this.gameSub) {
       this.gameSub.unsubscribe();
     }
   }
-  }
+}
